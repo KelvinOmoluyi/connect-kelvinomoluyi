@@ -1,0 +1,19 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /cards/{username} {
+      // 1. Anyone can view public cards (no account required)
+      allow read: if true;
+
+      // 2. Anyone can claim an unused handle/card without signing up
+      allow create: if !exists(/databases/$(database)/documents/cards/$(username))
+                    && request.resource.data.username == username;
+
+      // 3. Only the holder of the matching editKey can update their card
+      allow update: if request.resource.data.editKey == resource.data.editKey;
+
+      // 4. Deletions disabled or require matching editKey
+      allow delete: if request.auth != null || request.resource.data.editKey == resource.data.editKey;
+    }
+  }
+}
