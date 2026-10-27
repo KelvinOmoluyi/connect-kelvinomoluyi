@@ -13,17 +13,15 @@ const geistMono = Geist_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#090b10",
+  themeColor: "#38bdf8",
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
 };
 
 export const metadata: Metadata = {
-  title: "LinkUp — Digital Networking Cards for In-Person Events",
+  title: "Kelvin Omoluyi — Product Engineer & Founder",
   description:
-    "Exchange contacts instantly at conferences and meetups. Scan high-contrast QR codes and save directly to iPhone and Android Contacts with one tap.",
+    "Product-focused software engineer and founder building AI-powered products and digital experiences.",
   icons: {
     icon: "/favicon.ico",
   },
@@ -37,11 +35,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#090b10] text-gray-100 selection:bg-blue-600 selection:text-white">
-        {children}
-      </body>
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }
