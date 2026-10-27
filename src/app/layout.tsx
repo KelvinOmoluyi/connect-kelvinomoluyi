@@ -23,7 +23,13 @@ export const metadata: Metadata = {
   description:
     "Product-focused software engineer and founder building AI-powered products and digital experiences.",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/my-photo.jpeg" },
+      { url: "/icon.png", sizes: "192x192", type: "image/png" },
+      { url: "/favicon.ico" },
+    ],
+    shortcut: "/my-photo.jpeg",
+    apple: "/my-photo.jpeg",
   },
 };
 
